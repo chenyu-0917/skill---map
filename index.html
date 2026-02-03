@@ -146,9 +146,13 @@
 
         .main-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 30px;
             margin-bottom: 40px;
+        }
+
+        .full-width {
+            grid-column: 1;
         }
 
         .card {
@@ -158,10 +162,6 @@
             padding: 32px;
             transition: all 0.3s ease;
             animation: fadeInUp 0.8s ease-out 0.4s backwards;
-        }
-
-        .skills-section {
-            grid-column: 1 / -1;
         }
 
         .card:hover {
@@ -183,7 +183,6 @@
         }
 
         .radar-container {
-            grid-column: 1 / -1;
             height: 500px;
             display: flex;
             align-items: center;
@@ -364,7 +363,6 @@
         }
 
         .roadmap-section {
-            grid-column: 1 / -1;
             animation: fadeInUp 0.8s ease-out 0.6s backwards;
         }
 
@@ -472,10 +470,6 @@
         }
 
         @media (max-width: 968px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-            
             h1 {
                 font-size: 2.5rem;
             }
@@ -536,12 +530,12 @@
         </div>
 
         <div class="main-grid">
-            <div class="card radar-container">
+            <div class="card radar-container full-width">
                 <canvas id="skillRadar"></canvas>
             </div>
 
-            <div class="card skills-section">
-                 <h2 class="card-title"><span class="icon">🎯</span>核心技能評估</h2>
+            <div class="card full-width">
+                <h2 class="card-title"><span class="icon">🎯</span>核心技能評估</h2>
                 <div class="skills-list" id="skillsList"></div>
                 <div class="interactive-note">
                     <span class="note-icon">💡</span>
