@@ -187,6 +187,12 @@
         }
 
         .skills-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .skill-column {
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -227,6 +233,7 @@
             border-radius: 12px;
             border: 1px solid transparent;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .skill-item:hover {
@@ -243,6 +250,66 @@
         .skill-name {
             font-weight: 500;
             font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .expand-icon {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item.expanded .expand-icon {
+            transform: rotate(90deg);
+        }
+
+        .skill-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+            opacity: 0;
+        }
+
+        .skill-item.expanded .skill-details {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 12px;
+        }
+
+        .skill-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .learning-tips {
+            margin-top: 8px;
+            padding: 12px;
+            background: rgba(0, 217, 181, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .learning-tips-title {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .learning-tips-content {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
         }
 
         .skill-level {
@@ -412,6 +479,10 @@
             .radar-container {
                 height: 400px;
             }
+
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
         }
 
         .interactive-note {
@@ -438,7 +509,7 @@
     <div class="container">
         <header>
             <h1>🗺️ 技術技能地圖</h1>
-            <p class="subtitle">金融軟體開發工程師 • 職涯成長規劃</p>
+            <p class="subtitle">軟體開發工程師 • 職涯成長規劃</p>
         </header>
 
         <div class="stats-grid">
@@ -485,35 +556,161 @@
         // 技能資料結構
         const skillsData = {
             "後端開發": [
-                { name: ".NET Framework/Core", level: "advanced", score: 75, description: "熟悉 ASP.NET Core、Web API 開發" },
-                { name: "C#", level: "advanced", score: 75, description: "物件導向、LINQ、異步程式設計" },
-                { name: "SQL Server", level: "advanced", score: 80, description: "查詢優化、預存程序、索引設計" },
-                { name: "RESTful API 設計", level: "intermediate", score: 65, description: "API 設計原則、版本控制" },
-                { name: "微服務架構", level: "beginner", score: 30, description: "待加強:服務拆分、通訊機制" }
+                { 
+                    name: ".NET Framework/Core", 
+                    level: "advanced", 
+                    score: 75, 
+                    description: "熟悉 ASP.NET Core、Web API 開發",
+                    learningTips: "可以深入學習 Minimal APIs、gRPC 服務開發,以及 .NET 8 的新特性。建議實作一個完整的微服務專案來鞏固知識。"
+                },
+                { 
+                    name: "C#", 
+                    level: "advanced", 
+                    score: 75, 
+                    description: "物件導向、LINQ、異步程式設計",
+                    learningTips: "進階方向可學習 Pattern Matching、Record Types、Source Generators。推薦閱讀《C# in Depth》加深理解。"
+                },
+                { 
+                    name: "SQL Server", 
+                    level: "advanced", 
+                    score: 80, 
+                    description: "查詢優化、預存程序、索引設計",
+                    learningTips: "可以學習執行計畫分析、Query Store 使用、Always On 高可用性架構。考慮取得 MCSA 認證提升專業度。"
+                },
+                { 
+                    name: "RESTful API 設計", 
+                    level: "intermediate", 
+                    score: 65, 
+                    description: "API 設計原則、版本控制",
+                    learningTips: "深入研究 API 安全性(OAuth 2.0、JWT)、API Gateway 模式、GraphQL 作為補充技術。可參考 Microsoft API Design Guidelines。"
+                },
+                { 
+                    name: "微服務架構", 
+                    level: "beginner", 
+                    score: 30, 
+                    description: "待加強:服務拆分、通訊機制",
+                    learningTips: "建議從 Docker 容器化開始,學習 Service Mesh(如 Dapr)、Message Queue(RabbitMQ/Azure Service Bus)。推薦書籍《微服務設計》。"
+                }
             ],
             "前端開發": [
-                { name: "Angular", level: "intermediate", score: 65, description: "元件開發、路由、狀態管理" },
-                { name: "TypeScript", level: "intermediate", score: 70, description: "型別系統、進階泛型" },
-                { name: "JavaScript", level: "advanced", score: 75, description: "ES6+、非同步處理、閉包" },
-                { name: "HTML/CSS", level: "intermediate", score: 60, description: "響應式設計、Flexbox/Grid" },
-                { name: "RxJS", level: "beginner", score: 40, description: "待加強:反應式程式設計" }
+                { 
+                    name: "Angular", 
+                    level: "intermediate", 
+                    score: 65, 
+                    description: "元件開發、路由、狀態管理",
+                    learningTips: "深入學習 Signals、Standalone Components、Angular Universal SSR。建議完成 Angular 官方進階教學並實作完整專案。"
+                },
+                { 
+                    name: "TypeScript", 
+                    level: "intermediate", 
+                    score: 70, 
+                    description: "型別系統、進階泛型",
+                    learningTips: "學習 Utility Types、Conditional Types、Template Literal Types。推薦《TypeScript 程式設計》深化型別系統理解。"
+                },
+                { 
+                    name: "JavaScript", 
+                    level: "advanced", 
+                    score: 75, 
+                    description: "ES6+、非同步處理、閉包",
+                    learningTips: "持續追蹤 ECMAScript 新特性,深入研究 Event Loop、Memory Management。可以貢獻開源專案提升實戰經驗。"
+                },
+                { 
+                    name: "HTML/CSS", 
+                    level: "intermediate", 
+                    score: 60, 
+                    description: "響應式設計、Flexbox/Grid",
+                    learningTips: "學習 CSS Grid 進階應用、CSS Variables、Container Queries。練習 Tailwind CSS 提升開發效率。"
+                },
+                { 
+                    name: "RxJS", 
+                    level: "beginner", 
+                    score: 40, 
+                    description: "待加強:反應式程式設計",
+                    learningTips: "從基礎 Observable 概念開始,逐步學習常用 Operators(map, filter, switchMap)。RxJS 官方文件搭配實作練習最有效。"
+                }
             ],
             "開發工具與流程": [
-                { name: "Git", level: "intermediate", score: 65, description: "分支管理、合併策略" },
-                { name: "Azure DevOps", level: "beginner", score: 35, description: "待加強:CI/CD 流程設計" },
-                { name: "Visual Studio", level: "advanced", score: 75, description: "偵錯、效能分析" },
-                { name: "單元測試", level: "intermediate", score: 55, description: "待加強:測試覆蓋率提升" }
+                { 
+                    name: "Git", 
+                    level: "intermediate", 
+                    score: 65, 
+                    description: "分支管理、合併策略",
+                    learningTips: "學習 Git Rebase、Cherry-pick、Submodules。了解 Git Flow、GitHub Flow 等團隊協作流程。"
+                },
+                { 
+                    name: "Azure DevOps", 
+                    level: "beginner", 
+                    score: 35, 
+                    description: "待加強:CI/CD 流程設計",
+                    learningTips: "從建立簡單的 Build Pipeline 開始,逐步學習 Release Pipeline、YAML Pipelines。考慮取得 Azure DevOps Engineer 認證。"
+                },
+                { 
+                    name: "Visual Studio", 
+                    level: "advanced", 
+                    score: 75, 
+                    description: "偵錯、效能分析",
+                    learningTips: "探索 Hot Reload、Live Unit Testing、IntelliCode。學習使用 Performance Profiler 優化程式效能。"
+                },
+                { 
+                    name: "單元測試", 
+                    level: "intermediate", 
+                    score: 55, 
+                    description: "待加強:測試覆蓋率提升",
+                    learningTips: "學習 xUnit、Moq、FluentAssertions。實踐 TDD(測試驅動開發),目標達到 80% 以上的測試覆蓋率。"
+                }
             ],
             "系統設計與架構": [
-                { name: "物件導向設計", level: "intermediate", score: 65, description: "設計模式、SOLID 原則" },
-                { name: "資料庫設計", level: "advanced", score: 70, description: "正規化、效能優化" },
-                { name: "系統效能優化", level: "intermediate", score: 60, description: "快取策略、查詢優化" },
-                { name: "分散式系統", level: "beginner", score: 25, description: "待加強:CAP 理論、一致性" }
+                { 
+                    name: "物件導向設計", 
+                    level: "intermediate", 
+                    score: 65, 
+                    description: "設計模式、SOLID 原則",
+                    learningTips: "深入研讀《Design Patterns》經典書籍,在實際專案中應用常用模式(Factory, Strategy, Observer)。"
+                },
+                { 
+                    name: "資料庫設計", 
+                    level: "advanced", 
+                    score: 70, 
+                    description: "正規化、效能優化",
+                    learningTips: "學習資料庫分片(Sharding)、讀寫分離架構。了解 NoSQL 資料庫(MongoDB, Redis)作為補充方案。"
+                },
+                { 
+                    name: "系統效能優化", 
+                    level: "intermediate", 
+                    score: 60, 
+                    description: "快取策略、查詢優化",
+                    learningTips: "學習多層快取架構(Memory Cache, Redis, CDN)、APM 工具使用(Application Insights)。實作效能壓測與分析。"
+                },
+                { 
+                    name: "分散式系統", 
+                    level: "beginner", 
+                    score: 25, 
+                    description: "待加強:CAP 理論、一致性",
+                    learningTips: "閱讀《分散式系統原理與範型》,理解 CAP 定理、最終一致性。學習分散式鎖、分散式事務的實作方式。"
+                }
             ],
             "領域知識": [
-                { name: "金融交易系統", level: "advanced", score: 80, description: "交易流程、風險控管" },
-                { name: "問題排查 Debug", level: "advanced", score: 75, description: "Log 分析、根因分析" },
-                { name: "需求分析", level: "intermediate", score: 65, description: "使用者訪談、需求文件" }
+                { 
+                    name: "金融交易系統", 
+                    level: "advanced", 
+                    score: 80, 
+                    description: "交易流程、風險控管",
+                    learningTips: "持續累積領域知識,研究國際金融規範、區塊鏈技術在金融的應用。這是你的核心優勢,可以往金融科技專家發展。"
+                },
+                { 
+                    name: "問題排查 Debug", 
+                    level: "advanced", 
+                    score: 75, 
+                    description: "Log 分析、根因分析",
+                    learningTips: "學習 ELK Stack(Elasticsearch, Logstash, Kibana)集中式日誌管理。掌握分散式追蹤(Distributed Tracing)技術。"
+                },
+                { 
+                    name: "需求分析", 
+                    level: "intermediate", 
+                    score: 65, 
+                    description: "使用者訪談、需求文件",
+                    learningTips: "學習 User Story Mapping、Event Storming 等需求探索技巧。考慮學習 UML、C4 Model 等系統建模方法。"
+                }
             ]
         };
 
@@ -588,32 +785,34 @@
         function renderSkillsList() {
             const container = document.getElementById('skillsList');
             
-            Object.entries(skillsData).forEach(([category, skills]) => {
-                const categoryDiv = document.createElement('div');
-                categoryDiv.className = 'skill-category';
-                
-                const header = document.createElement('div');
-                header.className = 'category-header';
-                header.innerHTML = `<div class="category-title">${category}</div>`;
-                categoryDiv.appendChild(header);
-                
-                skills.forEach(skill => {
-                    const skillDiv = document.createElement('div');
-                    skillDiv.className = 'skill-item';
-                    skillDiv.innerHTML = `
-                        <div class="skill-header">
-                            <span class="skill-name">${skill.name}</span>
-                            <span class="skill-level level-${skill.level}">${getLevelText(skill.level)}</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 0%" data-width="${skill.score}%"></div>
-                        </div>
-                    `;
-                    categoryDiv.appendChild(skillDiv);
-                });
-                
-                container.appendChild(categoryDiv);
+            // 定義兩欄的類別分組
+            const column1Categories = ['前端開發', '後端開發'];
+            const column2Categories = ['開發工具與流程', '系統設計與架構', '領域知識'];
+            
+            // 創建第一欄
+            const column1 = document.createElement('div');
+            column1.className = 'skill-column';
+            
+            column1Categories.forEach(categoryName => {
+                if (skillsData[categoryName]) {
+                    const categoryDiv = createCategoryElement(categoryName, skillsData[categoryName]);
+                    column1.appendChild(categoryDiv);
+                }
             });
+            
+            // 創建第二欄
+            const column2 = document.createElement('div');
+            column2.className = 'skill-column';
+            
+            column2Categories.forEach(categoryName => {
+                if (skillsData[categoryName]) {
+                    const categoryDiv = createCategoryElement(categoryName, skillsData[categoryName]);
+                    column2.appendChild(categoryDiv);
+                }
+            });
+            
+            container.appendChild(column1);
+            container.appendChild(column2);
 
             // 觸發進度條動畫
             setTimeout(() => {
@@ -621,6 +820,60 @@
                     bar.style.width = bar.dataset.width;
                 });
             }, 100);
+        }
+
+        function createCategoryElement(category, skills) {
+            const categoryDiv = document.createElement('div');
+            categoryDiv.className = 'skill-category';
+            
+            const header = document.createElement('div');
+            header.className = 'category-header';
+            header.innerHTML = `<div class="category-title">${category}</div>`;
+            categoryDiv.appendChild(header);
+            
+            skills.forEach(skill => {
+                const skillDiv = document.createElement('div');
+                skillDiv.className = 'skill-item';
+                skillDiv.innerHTML = `
+                    <div class="skill-header">
+                        <span class="skill-name">
+                            <span class="expand-icon">▶</span>
+                            ${skill.name}
+                        </span>
+                        <span class="skill-level level-${skill.level}">${getLevelText(skill.level)}</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 0%" data-width="${skill.score}%"></div>
+                    </div>
+                    <div class="skill-details">
+                        <div class="skill-description">
+                            ${skill.description}
+                        </div>
+                        ${skill.learningTips ? `
+                            <div class="learning-tips">
+                                <div class="learning-tips-title">
+                                    💡 學習建議
+                                </div>
+                                <div class="learning-tips-content">
+                                    ${skill.learningTips}
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+                
+                // 加入點擊事件
+                skillDiv.addEventListener('click', function(e) {
+                    // 如果點擊的是進度條區域，不展開
+                    if (e.target.closest('.skill-bar')) return;
+                    
+                    this.classList.toggle('expanded');
+                });
+                
+                categoryDiv.appendChild(skillDiv);
+            });
+            
+            return categoryDiv;
         }
 
         function getLevelText(level) {
