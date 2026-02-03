@@ -89,14 +89,6 @@ const skillsData = {
 
 > 建議:新增專案截圖到 `/screenshots` 資料夾
 
-## 🤝 貢獻
-
-歡迎提交 Issue 或 Pull Request!
-
-## 📄 授權
-
-MIT License - 自由使用與修改
-
 ## 💡 靈感來源
 
 這個專案是為了幫助軟體工程師:
