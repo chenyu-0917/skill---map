@@ -627,6 +627,59 @@
                     learningTips: "從基礎 Observable 概念開始,逐步學習常用 Operators(map, filter, switchMap)。RxJS 官方文件搭配實作練習最有效。"
                 }
             ],
+            "雲端技術": [
+                { 
+                    name: "AWS 雲端服務", 
+                    level: "intermediate", 
+                    score: 65, 
+                    description: "已取得 AWS AIF-C01 認證,了解 AI/ML 服務基礎",
+                    learningTips: "繼續深入學習 AWS 核心服務(EC2, S3, Lambda, RDS)。建議考取 AWS Solutions Architect Associate 認證,系統性掌握雲端架構設計。"
+                },
+                { 
+                    name: "雲端架構設計", 
+                    level: "beginner", 
+                    score: 45, 
+                    description: "學習中:高可用性、擴展性設計",
+                    learningTips: "學習 AWS Well-Architected Framework 五大支柱。實作部署一個完整的雲端應用,包含 Auto Scaling、Load Balancer。"
+                },
+                { 
+                    name: "容器化技術", 
+                    level: "beginner", 
+                    score: 35, 
+                    description: "待加強:Docker、Kubernetes",
+                    learningTips: "從 Docker 基礎開始,學習撰寫 Dockerfile、Docker Compose。進階學習 ECS/EKS 容器編排服務。"
+                }
+            ],
+            "系統分析與設計": [
+                { 
+                    name: "系統分析方法", 
+                    level: "intermediate", 
+                    score: 60, 
+                    description: "SA Workshop 培訓中:系統環境架構規劃設計",
+                    learningTips: "持續精進系統分析技能,學習 UML、C4 Model 等建模工具。可以考取 CBAP 商業分析師認證。"
+                },
+                { 
+                    name: "需求訪談與分析", 
+                    level: "intermediate", 
+                    score: 70, 
+                    description: "需求訪談技巧、SRS 文件撰寫",
+                    learningTips: "實踐 User Story Mapping、Event Storming 技巧。多參與實際專案的需求訪談,累積經驗。"
+                },
+                { 
+                    name: "ER-Model 資料庫建模", 
+                    level: "advanced", 
+                    score: 75, 
+                    description: "資料庫規劃、ER 圖設計",
+                    learningTips: "結合 SQL Server 經驗,深化資料建模能力。學習進階主題如時態資料庫、Data Vault 建模。"
+                },
+                { 
+                    name: "系統測試規劃", 
+                    level: "intermediate", 
+                    score: 58, 
+                    description: "學習中:系統測試計畫書撰寫",
+                    learningTips: "學習完整的測試策略(單元、整合、系統、驗收測試)。了解測試自動化工具如 Selenium、Playwright。"
+                }
+            ],
             "開發工具與流程": [
                 { 
                     name: "Git", 
@@ -657,34 +710,43 @@
                     learningTips: "學習 xUnit、Moq、FluentAssertions。實踐 TDD(測試驅動開發),目標達到 80% 以上的測試覆蓋率。"
                 }
             ],
-            "系統設計與架構": [
+            "專案管理與溝通": [
                 { 
-                    name: "物件導向設計", 
+                    name: "系統開發成本分析", 
                     level: "intermediate", 
-                    score: 65, 
-                    description: "設計模式、SOLID 原則",
-                    learningTips: "深入研讀《Design Patterns》經典書籍,在實際專案中應用常用模式(Factory, Strategy, Observer)。"
+                    score: 55, 
+                    description: "SA Workshop 培訓中:專案成本估算",
+                    learningTips: "學習功能點分析(Function Point)、COCOMO 模型等估算方法。了解敏捷開發的故事點估算技巧。"
                 },
                 { 
-                    name: "資料庫設計", 
-                    level: "advanced", 
-                    score: 70, 
-                    description: "正規化、效能優化",
-                    learningTips: "學習資料庫分片(Sharding)、讀寫分離架構。了解 NoSQL 資料庫(MongoDB, Redis)作為補充方案。"
-                },
-                { 
-                    name: "系統效能優化", 
+                    name: "簡報與溝通技巧", 
                     level: "intermediate", 
                     score: 60, 
-                    description: "快取策略、查詢優化",
-                    learningTips: "學習多層快取架構(Memory Cache, Redis, CDN)、APM 工具使用(Application Insights)。實作效能壓測與分析。"
+                    description: "技術簡報、需求溝通",
+                    learningTips: "持續練習技術簡報能力,學習說故事的技巧。可以參加內部技術分享會累積經驗。"
                 },
                 { 
-                    name: "分散式系統", 
+                    name: "軟體工程方法", 
+                    level: "intermediate", 
+                    score: 62, 
+                    description: "SA Workshop 培訓中:軟體開發生命週期",
+                    learningTips: "深入了解 Agile、Scrum、Kanban 等敏捷方法論。考慮取得 PSM(Professional Scrum Master)認證。"
+                }
+            ],
+            "資訊安全": [
+                { 
+                    name: "資安基礎概念", 
+                    level: "intermediate", 
+                    score: 58, 
+                    description: "SA Workshop 培訓中:系統安全設計",
+                    learningTips: "學習 OWASP Top 10 常見漏洞、安全編碼實踐。了解 HTTPS、加密、雜湊等基礎知識。"
+                },
+                { 
+                    name: "應用程式安全", 
                     level: "beginner", 
-                    score: 25, 
-                    description: "待加強:CAP 理論、一致性",
-                    learningTips: "閱讀《分散式系統原理與範型》,理解 CAP 定理、最終一致性。學習分散式鎖、分散式事務的實作方式。"
+                    score: 45, 
+                    description: "待加強:SQL Injection、XSS 防護",
+                    learningTips: "實作常見攻擊的防護機制,學習使用安全掃描工具(SonarQube、OWASP ZAP)。結合金融系統經驗強化安全意識。"
                 }
             ],
             "領域知識": [
@@ -701,13 +763,6 @@
                     score: 75, 
                     description: "Log 分析、根因分析",
                     learningTips: "學習 ELK Stack(Elasticsearch, Logstash, Kibana)集中式日誌管理。掌握分散式追蹤(Distributed Tracing)技術。"
-                },
-                { 
-                    name: "需求分析", 
-                    level: "intermediate", 
-                    score: 65, 
-                    description: "使用者訪談、需求文件",
-                    learningTips: "學習 User Story Mapping、Event Storming 等需求探索技巧。考慮學習 UML、C4 Model 等系統建模方法。"
                 }
             ]
         };
@@ -716,21 +771,21 @@
         const roadmapData = [
             {
                 phase: "短期目標 (3-6個月)",
-                title: "強化後端核心能力",
-                description: "專注於提升後端技術深度,為資深後端工程師角色做準備",
-                skills: ["微服務架構", "API 設計模式", "效能優化", "單元測試", "CI/CD"]
+                title: "強化雲端與系統分析能力",
+                description: "完成 SA Workshop 培訓,深化 AWS 雲端技術,為系統架構師角色做準備",
+                skills: ["AWS SAA 認證", "系統分析實作", "Docker 容器化", "需求訪談精進", "資安強化"]
             },
             {
                 phase: "中期目標 (6-12個月)",
-                title: "拓展全端技能樹",
-                description: "在後端穩固的基礎上,強化前端技術與全端思維",
-                skills: ["React/Vue 學習", "RxJS 精通", "前端效能優化", "使用者體驗設計"]
+                title: "全端技術與架構設計",
+                description: "結合後端、雲端、系統分析能力,成為全方位的技術專家",
+                skills: ["微服務架構實作", "RxJS 精通", "雲端架構設計", "CI/CD 自動化", "成本效益分析"]
             },
             {
                 phase: "長期目標 (12-24個月)",
-                title: "邁向技術領導角色",
-                description: "發展系統架構設計能力與技術領導力",
-                skills: ["分散式系統", "系統架構設計", "技術決策", "團隊協作與指導", "雲端架構"]
+                title: "資深系統架構師 / 技術領導",
+                description: "整合金融領域知識與技術能力,成為金融科技領域的資深架構師",
+                skills: ["分散式系統", "企業架構設計", "技術團隊領導", "FinTech 創新", "雲端成本優化"]
             }
         ];
 
@@ -784,8 +839,8 @@
             const container = document.getElementById('skillsList');
             
             // 定義兩欄的類別分組
-            const column1Categories = ['前端開發', '後端開發'];
-            const column2Categories = ['開發工具與流程', '系統設計與架構', '領域知識'];
+            const column1Categories = ['前端開發', '後端開發', '雲端技術', '系統分析與設計'];
+            const column2Categories = ['開發工具與流程', '專案管理與溝通', '資訊安全', '領域知識'];
             
             // 創建第一欄
             const column1 = document.createElement('div');
@@ -918,6 +973,20 @@
                 return avgScore;
             });
 
+            // 定義每個類別的目標能力(依照 skillsData 的順序)
+            const categoryTargets = {
+                "後端開發": 85,
+                "前端開發": 80,
+                "雲端技術": 75,
+                "系統分析與設計": 80,
+                "開發工具與流程": 75,
+                "專案管理與溝通": 75,
+                "資訊安全": 70,
+                "領域知識": 85
+            };
+
+            const targetScores = categories.map(category => categoryTargets[category] || 75);
+
             new Chart(ctx, {
                 type: 'radar',
                 data: {
@@ -937,7 +1006,7 @@
                         pointHoverRadius: 7
                     }, {
                         label: '目標能力',
-                        data: [85, 80, 75, 80, 85],
+                        data: targetScores,
                         fill: true,
                         backgroundColor: 'rgba(0, 217, 181, 0.1)',
                         borderColor: 'rgba(0, 217, 181, 1)',
