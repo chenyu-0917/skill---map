@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="個人技術技能地圖 - 互動式視覺化工具,用於追蹤技術成長與職涯發展">
+    <meta name="description" content="個人技術技能地圖">
     <meta name="keywords" content="技能地圖,技術成長,職涯規劃,軟體工程師">
     <title>技術技能地圖 - 個人成長工具</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -507,7 +507,7 @@
     <div class="container">
         <header>
             <h1>🗺️ 技術技能地圖</h1>
-            <p class="subtitle">軟體開發工程師 • 職涯成長規劃</p>
+            <p class="subtitle">金融軟體開發工程師 • 職涯成長規劃</p>
         </header>
 
         <div class="stats-grid">
@@ -558,36 +558,36 @@
                     name: ".NET Framework/Core", 
                     level: "advanced", 
                     score: 75, 
-                    description: "熟悉 ASP.NET Core、Web API 開發",
+                    description: "熟悉 ASP.NET Core、Web API 開發、交易系統實作",
                     learningTips: "可以深入學習 Minimal APIs、gRPC 服務開發,以及 .NET 8 的新特性。建議實作一個完整的微服務專案來鞏固知識。"
                 },
                 { 
                     name: "C#", 
                     level: "advanced", 
                     score: 75, 
-                    description: "物件導向、LINQ、異步程式設計",
+                    description: "物件導向、LINQ、異步程式設計、錯誤處理",
                     learningTips: "進階方向可學習 Pattern Matching、Record Types、Source Generators。推薦閱讀《C# in Depth》加深理解。"
                 },
                 { 
                     name: "SQL Server", 
                     level: "advanced", 
                     score: 80, 
-                    description: "查詢優化、預存程序、索引設計",
+                    description: "查詢優化、預存程序、索引設計、交易管理",
                     learningTips: "可以學習執行計畫分析、Query Store 使用、Always On 高可用性架構。考慮取得 MCSA 認證提升專業度。"
                 },
                 { 
                     name: "RESTful API 設計", 
                     level: "intermediate", 
-                    score: 65, 
-                    description: "API 設計原則、版本控制",
+                    score: 68, 
+                    description: "API 設計原則、版本控制、跨系統串接",
                     learningTips: "深入研究 API 安全性(OAuth 2.0、JWT)、API Gateway 模式、GraphQL 作為補充技術。可參考 Microsoft API Design Guidelines。"
                 },
                 { 
                     name: "微服務架構", 
                     level: "beginner", 
-                    score: 30, 
-                    description: "待加強:服務拆分、通訊機制",
-                    learningTips: "建議從 Docker 容器化開始,學習 Service Mesh(如 Dapr)、Message Queue(RabbitMQ/Azure Service Bus)。推薦書籍《微服務設計》。"
+                    score: 40, 
+                    description: "概念理解:服務拆分、單體式系統問題、強耦合處理",
+                    learningTips: "建議從 Docker 容器化開始,學習 Service Mesh(如 Dapr)、Message Queue(RabbitMQ/Azure Service Bus)。推薦書籍《微服務設計》。你已經理解單體式系統的痛點,接下來是實作經驗累積。"
                 }
             ],
             "前端開發": [
@@ -611,6 +611,13 @@
                     score: 75, 
                     description: "ES6+、非同步處理、閉包",
                     learningTips: "持續追蹤 ECMAScript 新特性,深入研究 Event Loop、Memory Management。可以貢獻開源專案提升實戰經驗。"
+                },
+                { 
+                    name: "前端效能優化", 
+                    level: "intermediate", 
+                    score: 62, 
+                    description: "業務邏輯優化、畫面載入速度改善",
+                    learningTips: "學習 Lazy Loading、Code Splitting、Bundle 優化。使用 Chrome DevTools Performance 分析效能瓶頸。"
                 },
                 { 
                     name: "HTML/CSS", 
@@ -647,29 +654,36 @@
                     level: "beginner", 
                     score: 35, 
                     description: "待加強:Docker、Kubernetes",
-                    learningTips: "從 Docker 基礎開始,學習撰寫 Dockerfile、Docker Compose。進階學習 ECS/EKS 容器編排服務。"
+                    learningTips: "從 Docker 基礎開始,學習撰寫 Dockerfile、Docker Compose。進階學習 ECS/EKS 容器編排服務。結合你對微服務的理解,容器化是下一步關鍵技能。"
                 }
             ],
             "系統分析與設計": [
                 { 
                     name: "系統分析方法", 
-                    level: "intermediate", 
-                    score: 60, 
-                    description: "SA Workshop 培訓中:系統環境架構規劃設計",
-                    learningTips: "持續精進系統分析技能,學習 UML、C4 Model 等建模工具。可以考取 CBAP 商業分析師認證。"
+                    level: "advanced", 
+                    score: 72, 
+                    description: "SA Workshop 實戰:能看懂系統全貌、系統邊界、利害關係人分析",
+                    learningTips: "持續精進系統分析技能,學習更進階的企業架構框架(TOGAF)。可以考取 CBAP 商業分析師認證,強化專業認可度。"
                 },
                 { 
                     name: "需求訪談與分析", 
-                    level: "intermediate", 
+                    level: "advanced", 
+                    score: 78, 
+                    description: "實戰經驗:需求訪談、會議整理、SRS 文件撰寫、Use Case 設計",
+                    learningTips: "繼續深化 User Story Mapping、Event Storming 技巧。你已經具備從需求到實作的完整視角,這是中高階工程師的關鍵能力。"
+                },
+                { 
+                    name: "UML 系統建模", 
+                    level: "advanced", 
                     score: 70, 
-                    description: "需求訪談技巧、SRS 文件撰寫",
-                    learningTips: "實踐 User Story Mapping、Event Storming 技巧。多參與實際專案的需求訪談,累積經驗。"
+                    description: "Use Case 圖、事務流程圖、交互流程圖、類別圖",
+                    learningTips: "學習 C4 Model 作為補充,它更適合現代系統架構文件。可以嘗試用 PlantUML 或 Mermaid 做版本控制的文件。"
                 },
                 { 
                     name: "ER-Model 資料庫建模", 
                     level: "advanced", 
                     score: 75, 
-                    description: "資料庫規劃、ER 圖設計",
+                    description: "資料庫規劃、ER 圖設計、正規化",
                     learningTips: "結合 SQL Server 經驗,深化資料建模能力。學習進階主題如時態資料庫、Data Vault 建模。"
                 },
                 { 
@@ -678,22 +692,29 @@
                     score: 58, 
                     description: "學習中:系統測試計畫書撰寫",
                     learningTips: "學習完整的測試策略(單元、整合、系統、驗收測試)。了解測試自動化工具如 Selenium、Playwright。"
+                },
+                { 
+                    name: "非功能需求分析", 
+                    level: "intermediate", 
+                    score: 65, 
+                    description: "實戰經驗:效能、安全性、可靠性、可維護性、可擴展性",
+                    learningTips: "繼續強化效能優化技能,學習 APM 工具(Application Insights)。了解 SLA/SLO/SLI 的定義與監控,這在企業級系統很重要。"
                 }
             ],
             "開發工具與流程": [
                 { 
-                    name: "Git", 
+                    name: "Git 版本控制", 
                     level: "intermediate", 
                     score: 65, 
-                    description: "分支管理、合併策略",
+                    description: "分支管理、合併策略、衝突處理",
                     learningTips: "學習 Git Rebase、Cherry-pick、Submodules。了解 Git Flow、GitHub Flow 等團隊協作流程。"
                 },
                 { 
                     name: "Azure DevOps", 
-                    level: "beginner", 
-                    score: 35, 
-                    description: "待加強:CI/CD 流程設計",
-                    learningTips: "從建立簡單的 Build Pipeline 開始,逐步學習 Release Pipeline、YAML Pipelines。考慮取得 Azure DevOps Engineer 認證。"
+                    level: "intermediate", 
+                    score: 55, 
+                    description: "實戰經驗:Pull、Fetch、Switch、Push、Commit、建立提取要求(PR)",
+                    learningTips: "從建立簡單的 Build Pipeline 開始,逐步學習 Release Pipeline、YAML Pipelines。了解 CI/CD 完整流程,包含 SonarQube、Checkmarx 等品質檢查工具。"
                 },
                 { 
                     name: "Visual Studio", 
@@ -719,50 +740,80 @@
                     learningTips: "學習功能點分析(Function Point)、COCOMO 模型等估算方法。了解敏捷開發的故事點估算技巧。"
                 },
                 { 
-                    name: "簡報與溝通技巧", 
+                    name: "技術文件撰寫", 
+                    level: "advanced", 
+                    score: 72, 
+                    description: "SRS、UML、會議記錄、系統文件",
+                    learningTips: "學習 Architecture Decision Records(ADR)記錄技術決策。練習用 Markdown 寫技術文件,方便版本控制。"
+                },
+                { 
+                    name: "跨部門溝通協作", 
                     level: "intermediate", 
-                    score: 60, 
-                    description: "技術簡報、需求溝通",
-                    learningTips: "持續練習技術簡報能力,學習說故事的技巧。可以參加內部技術分享會累積經驗。"
+                    score: 68, 
+                    description: "實戰經驗:需求訪談、會議整理、跨角色討論",
+                    learningTips: "持續練習技術簡報能力,學習說故事的技巧。可以參加內部技術分享會累積經驗。你已經具備「跟人講系統」的能力,這是很多工程師缺乏的軟實力。"
                 },
                 { 
                     name: "軟體工程方法", 
                     level: "intermediate", 
-                    score: 62, 
-                    description: "SA Workshop 培訓中:軟體開發生命週期",
+                    score: 68, 
+                    description: "SA Workshop 強化:軟體開發生命週期、敏捷方法",
                     learningTips: "深入了解 Agile、Scrum、Kanban 等敏捷方法論。考慮取得 PSM(Professional Scrum Master)認證。"
                 }
             ],
+            "系統維運與品質": [
+                { 
+                    name: "Log 管理與分析", 
+                    level: "advanced", 
+                    score: 75, 
+                    description: "實戰經驗:錯誤 log、交易 log、主動加 log 追蹤問題、log 去識別化",
+                    learningTips: "學習 ELK Stack(Elasticsearch, Logstash, Kibana)集中式日誌管理。掌握分散式追蹤(Distributed Tracing)技術,如 OpenTelemetry。"
+                },
+                { 
+                    name: "問題排查與 Debug", 
+                    level: "advanced", 
+                    score: 78, 
+                    description: "實戰經驗:看 log 定位問題、根因分析、支局問題處理",
+                    learningTips: "學習系統性的 Debug 方法論,如 5 Whys、魚骨圖。了解分散式系統的 Debug 工具與技巧。"
+                },
+                { 
+                    name: "系統可靠性工程", 
+                    level: "intermediate", 
+                    score: 70, 
+                    description: "實戰經驗:錯誤處理、交易失敗處理、資料驗證、異常狀況處理",
+                    learningTips: "學習 SRE(Site Reliability Engineering)理念。了解 Error Budget、Incident Response 等概念,提升系統穩定性。"
+                }
+            ],
             "資訊安全": [
+                { 
+                    name: "應用程式安全", 
+                    level: "intermediate", 
+                    score: 65, 
+                    description: "實戰經驗:權限控制、主管授權機制、log 去識別化、API 安全",
+                    learningTips: "學習 OWASP Top 10 常見漏洞、安全編碼實踐。了解 HTTPS、加密、雜湊等基礎知識。結合金融系統經驗強化安全意識。"
+                },
                 { 
                     name: "資安基礎概念", 
                     level: "intermediate", 
                     score: 58, 
                     description: "SA Workshop 培訓中:系統安全設計",
-                    learningTips: "學習 OWASP Top 10 常見漏洞、安全編碼實踐。了解 HTTPS、加密、雜湊等基礎知識。"
-                },
-                { 
-                    name: "應用程式安全", 
-                    level: "beginner", 
-                    score: 45, 
-                    description: "待加強:SQL Injection、XSS 防護",
-                    learningTips: "實作常見攻擊的防護機制,學習使用安全掃描工具(SonarQube、OWASP ZAP)。結合金融系統經驗強化安全意識。"
+                    learningTips: "深入學習身份驗證(Authentication)與授權(Authorization)機制。了解常見攻擊手法與防護措施,如 SQL Injection、XSS、CSRF。"
                 }
             ],
             "領域知識": [
                 { 
                     name: "金融交易系統", 
                     level: "advanced", 
-                    score: 80, 
-                    description: "交易流程、風險控管",
-                    learningTips: "持續累積領域知識,研究國際金融規範、區塊鏈技術在金融的應用。這是你的核心優勢,可以往金融科技專家發展。"
+                    score: 82, 
+                    description: "實戰經驗:郵局櫃員交易、交易流程、風險控管、主管授權、交易失敗處理",
+                    learningTips: "持續累積領域知識,研究國際金融規範、區塊鏈技術在金融的應用。這是你的核心優勢,結合系統分析能力可以往金融科技架構師發展。"
                 },
                 { 
-                    name: "問題排查 Debug", 
+                    name: "舊系統維護與現代化", 
                     level: "advanced", 
-                    score: 75, 
-                    description: "Log 分析、根因分析",
-                    learningTips: "學習 ELK Stack(Elasticsearch, Logstash, Kibana)集中式日誌管理。掌握分散式追蹤(Distributed Tracing)技術。"
+                    score: 73, 
+                    description: "實戰經驗:單體式系統維護、理解強耦合問題、舊系統轉新系統",
+                    learningTips: "學習 Strangler Fig Pattern(絞殺者模式)逐步重構舊系統。了解如何在不停機的情況下進行系統現代化,這在企業很有價值。"
                 }
             ]
         };
